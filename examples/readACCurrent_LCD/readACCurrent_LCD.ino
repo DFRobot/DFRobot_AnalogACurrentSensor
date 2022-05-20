@@ -1,25 +1,37 @@
+/*!
+ * @file  readACCurrent_LCD.ino
+ * @brief  This example reads Analog AC Current Sensor and display on the LCD.
+ * @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @license  The MIT License (MIT)
+ * @author  [bernie chen](bernie.chen@dfrobot.com)
+ * @maintainer  [Henry Zhao](henry.zhao@dfrobot.com)  [qsjhyy](yihuan.huang@dfrobot.com)
+ * @version  V1.0
+ * @date  2022-05-20
+ * @url  https://github.com/DFRobot/DFRobot_AnalogACurrentSensor
+ */
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);        // select the pins used on the LCD panel
 
 float Vref = 0;
-const int ACPin = A2;         //set arduino signal read pin
-#define ACTectionRange 20; //set Non-invasive AC Current Sensor tection range (20A,30A,50A,100A)
-void setup() 
+const int ACPin = A2;   // set arduino signal read pin
+#define ACTectionRange 20   // set Non-invasive AC Current Sensor tection range (20A,30A,50A,100A)
+
+void setup()
 {
   Serial.begin(115200);
-  lcd.begin(16, 2);                       // start the library
+  lcd.begin(16, 2);   // start the library
   pinMode(13, OUTPUT);
-  Vref = readVref();	//Read reference voltage
+  Vref = readVref();   // Read reference voltage
 }
 
-void loop() 
+void loop()
 {
-  lcd.setCursor(3, 0); 
-  float ACCurrentValue = readACCurrentValue(); //read AC Current Value
-//  Serial.println(ACCurrentValue);
+  lcd.setCursor(3, 0);
+  float ACCurrentValue = readACCurrentValue();   // read AC Current Value
+  // Serial.println(ACCurrentValue);
   lcd.print("AC CURRENT");
-  lcd.setCursor(5, 1); 
+  lcd.setCursor(5, 1);
   lcd.print(ACCurrentValue);
   lcd.print("  A");
   digitalWrite(13, HIGH);
@@ -31,27 +43,28 @@ void loop()
 float readACCurrentValue()
 {
   float ACCurrtntValue = 0;
-  unsigned int peakVoltage = 0;  
-  unsigned int voltageVirtualValue = 0;  //Vrms
+  unsigned int peakVoltage = 0;
+  unsigned int voltageVirtualValue = 0;   // Vrms
   for (int i = 0; i < 5; i++)
   {
-    peakVoltage += analogRead(ACPin);   //read peak voltage
+    peakVoltage += analogRead(ACPin);   // read peak voltage
     delay(1);
   }
-  peakVoltage = peakVoltage / 5;   
-  voltageVirtualValue = peakVoltage * 0.707;  	//change the peak voltage to the Virtual Value of voltage
-  
-  /*The circuit is amplified by 2 times, so it is divided by 2.*/
-  voltageVirtualValue = (voltageVirtualValue * Vref / 1024) / 2;  
-  
+  peakVoltage = peakVoltage / 5;
+  voltageVirtualValue = peakVoltage * 0.707;   // change the peak voltage to the Virtual Value of voltage
+
+  /* The circuit is amplified by 2 times, so it is divided by 2. */
+  voltageVirtualValue = (voltageVirtualValue * Vref / 1024) / 2;
+
   ACCurrtntValue = voltageVirtualValue * ACTectionRange;
-  
+
   return ACCurrtntValue/1000;
 }
 
-
-
-/*Read reference voltage*/
+// VREF: Analog reference
+// For Arduino UNO, Leonardo and mega2560, etc. change VREF to 5
+// For Arduino Zero, Due, MKR Family, ESP32, etc. 3V3 controllers, change VREF to 3.3
+/* Read reference voltage */
 long readVref() 
 {
   long result;
