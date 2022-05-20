@@ -3,10 +3,11 @@
 
 When you want to measure AC current, it is common to have trouble cutting the wires, wiring or soldering. The Gravity: Analog AC Current Sensor comes to the rescue, eliminating the need to cut wires or reconnect circuits. Simply clamp the AC transformer probe on the AC line, and then plug the 3.5mm headphone jack into the signal conversion module to read the current AC current value. The analog output is designed to be compatible with 3V3/5V micro-controller. It can be conveniently used for AC current measurement to monitor AC motors, lighting equipment, air compressors, etc.
 
-![产品实物图](./resources/images/ACCurrentSensor.png)
+![product photo show](./resources/images/ACCurrentSensor.svg)
+![product photo show](./resources/images/ACCurrentSensor.png)
 
 
-## Product Link (https://www.dfrobot.com/)
+## Product Link (https://www.dfrobot.com/search-AC%20Current%20Sensor.html)
     SKU: SEN0287/SEN0288/SEN0211
 
 

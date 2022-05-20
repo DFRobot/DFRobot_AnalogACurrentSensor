@@ -5,6 +5,7 @@
 
 
 ![产品效果图片](./resources/images/ACCurrentSensor.svg)
+![产品效果图片](./resources/images/ACCurrentSensor.png)
 
 ## 产品链接 (https://www.dfrobot.com.cn/search.php?keywords=%E4%BA%A4%E6%B5%81%E7%94%B5%E6%B5%81%E4%BC%A0%E6%84%9F%E5%99%A8)
   SKU: SEN0287/SEN0288/SEN0211
