@@ -10,7 +10,7 @@
 ## 产品链接 (https://www.dfrobot.com.cn/search.php?keywords=%E4%BA%A4%E6%B5%81%E7%94%B5%E6%B5%81%E4%BC%A0%E6%84%9F%E5%99%A8)
   SKU: SEN0287/SEN0288/SEN0211
 
-## Table of Contents
+## 目录
 
   * [概述](#概述)
   * [库安装](#库安装)
@@ -19,14 +19,14 @@
   * [历史](#历史)
   * [创作者](#创作者)
 
-## Summary
+## 概述
 
 * 非接触测量，高安全性
 * 多种量程，适应各类测量场景
 * 适用于3V3/5V主控板
 
 
-## Installation
+## 库安装
 
 这里有2种安装方法：
 
